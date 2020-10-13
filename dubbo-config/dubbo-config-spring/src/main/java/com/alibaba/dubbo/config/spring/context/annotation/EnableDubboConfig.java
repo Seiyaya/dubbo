@@ -70,6 +70,7 @@ import java.lang.annotation.Target;
 public @interface EnableDubboConfig {
 
     /**
+     * 配置是否绑定到多个spring bean上
      * It indicates whether binding to multiple Spring Beans.
      * <p>
      * Please note that if {@link #multiple()} is <code>true</code> since 2.6.6, the multiple bean bindings will be

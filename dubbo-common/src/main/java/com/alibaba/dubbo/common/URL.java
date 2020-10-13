@@ -71,21 +71,47 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class URL implements Serializable {
 
     private static final long serialVersionUID = -1985165475234910535L;
+    /**
+     * dubbo://127.0.0.1:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider
+     * protocol://username:password@host:port/path?key=value&key=value
+     * @see AbstractConfig#appendParameters(parameters, config, prefix) 生成后面的 key = value
+     */
 
+    /**
+     * 协议名
+     */
     private final String protocol;
 
+    /**
+     * 用户名
+     */
     private final String username;
 
+    /**
+     * 密码
+     */
     private final String password;
 
     // by default, host to registry
+    /**
+     * 地址
+     */
     private final String host;
 
     // by default, port to registry
+    /**
+     * 端口
+     */
     private final int port;
 
+    /**
+     * 路径(服务名)
+     */
     private final String path;
 
+    /**
+     * 参数集合
+     */
     private final Map<String, String> parameters;
 
     // ==== cache ====

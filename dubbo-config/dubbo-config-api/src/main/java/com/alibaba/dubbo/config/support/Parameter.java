@@ -16,6 +16,8 @@
  */
 package com.alibaba.dubbo.config.support;
 
+import com.alibaba.dubbo.config.AbstractInterfaceConfig;
+
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -30,16 +32,42 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 public @interface Parameter {
 
+    /**
+     * 别名
+     * @return
+     */
     String key() default "";
 
+    /**
+     * 是否需要
+     * @return
+     */
     boolean required() default false;
 
+    /**
+     * 是否排除
+     * @return
+     */
     boolean excluded() default false;
 
+    /**
+     * 是否转义
+     * @return
+     */
     boolean escaped() default false;
 
+    /**
+     * 是否为属性
+     * 主要用作事件通知
+     * @return
+     */
     boolean attribute() default false;
 
+    /**
+     * 是否拼接默认属性，存在继承情况下，为true会把子类和父类的key都拼接在一起，用，分割
+     * @see AbstractInterfaceConfig#getFilter()
+     * @return
+     */
     boolean append() default false;
 
 }

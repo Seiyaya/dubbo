@@ -35,4 +35,10 @@ public class VersionTest {
         Assert.assertTrue(Version.isSupportResponseAttatchment("2.0.3"));
         Assert.assertFalse(Version.isSupportResponseAttatchment("2.0.0"));
     }
+
+    @Test
+    public void testGetVersion(){
+        String version = Version.getVersion(StringBuilder.class, "1.0.0");
+        System.out.println(version);
+    }
 }
